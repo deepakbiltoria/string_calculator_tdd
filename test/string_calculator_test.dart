@@ -37,12 +37,16 @@ void main(){
   });
 
   group("string calculator tests for exceptions", (){
+
     test('negative number will throw an exception', () {
 
       expect(
             () => calculator.add("1,-2,3"),
         throwsA(isA<Exception>().having(
-              (e) => e.toString(),
+              (e) {
+                print(e.toString());
+                return e.toString();
+              },
           'message',
           contains("negative numbers not allowed: -2"),
         )),
@@ -54,7 +58,10 @@ void main(){
       expect(
             () => calculator.add("1,-2,-3,-4"),
         throwsA(isA<Exception>().having(
-              (e) => e.toString(),
+              (e) {
+            print(e.toString());
+            return e.toString();
+          },
           'message',
           contains("negative numbers not allowed: -2,-3,-4"),
         )),
