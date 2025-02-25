@@ -18,6 +18,11 @@ void main(){
       expect(calculator.add("1,2,3"), 6);
     });
 
+    test('try empty string inside comma seprated numbers', () {
+      final calculator = Calculator();
+      expect(calculator.add("1,2,,3"), 6);
+    });
+
 
 
 
