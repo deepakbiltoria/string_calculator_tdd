@@ -27,6 +27,19 @@ void main(){
       expect(calculator.add("//;\n1;2"), 3);
     });
 
+    test('negative number will throw an exception', () {
+      final calculator = Calculator();
+
+      expect(
+            () => calculator.add("1,-2,3"),
+        throwsA(isA<Exception>().having(
+              (e) => e.toString(),
+          'message',
+          contains("negative numbers not allowed: -2"),
+        )),
+      );
+    });
+
 
 
 

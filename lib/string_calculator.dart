@@ -13,12 +13,25 @@ int add(String numbers){
     delimeter = RegExp.escape(numbers.substring(2, delimeter_limit));
     numbersTemp = numbers.substring(delimeter_limit + 1);
   }
-print("delimeter value $delimeter");
+// print("delimeter value $delimeter");
 
   final numList = numbersTemp.split(RegExp(delimeter));
 
-  return numList
+  List<int> negatives = [];
+  final sumOfNumbers =  numList
       .map((digit) => digit.isEmpty ? 0 : int.parse(digit))
-      .fold(0, (sum, num) => sum + num);
+      .fold(0, (sum, num) {
+        if(num < 0) {
+          negatives.add(num);
+        }
+        return sum + num;
+      });
+  // print("sumOfNumbers $sumOfNumbers");
+
+  if (negatives.isNotEmpty) {
+    throw Exception("negative numbers not allowed: ${negatives.join(",")}");
+  }
+
+  return sumOfNumbers;
 }
 }
