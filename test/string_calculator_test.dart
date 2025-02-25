@@ -22,6 +22,10 @@ void main(){
       final calculator = Calculator();
       expect(calculator.add("1,2,,3"), 6);
     });
+    test('testing semicolon as new delimiter  ', () {
+      final calculator = Calculator();
+      expect(calculator.add("//;\n1;2"), 3);
+    });
 
 
 
