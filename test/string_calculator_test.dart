@@ -12,6 +12,22 @@ void main(){
       final calculator = Calculator();
       expect(calculator.add("1"), 1);
     });
+
+    test('try comma seprated numbers', () {
+      final calculator = Calculator();
+      expect(calculator.add("1,2,3"), 6);
+    });
+
+
+
+
+
+
+
+
+
+
+
   });
 
 }
